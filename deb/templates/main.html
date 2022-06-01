@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="mainlayout">
+	<div class="left">
+		<table class="table caption-top">
+			<caption>List of users</caption>
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Debtor</th>
+					<th scope="col">Borrower</th>
+					<th scope="col">Amount</th>
+					<th scope="col">Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for deb in debs %}
+				<tr>
+					<th scope="row">{{ deb.id }}</th>
+					<td>{{ deb.debtor }}</td>
+					<td>{{ deb.borrower }}</td>
+					<td>{{ deb.amount }}</td>
+					<td>{{ deb.date_added }}</td>
+				</tr>
+
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	<div class="mid">
+		<button type="button" class="add-button">
+				Add Deb
+		</button>
+		<button type="button" class="reduse-button">
+			Reduse Deb
+		</button>
+	</div>
+
+	<div class="right">
+		<table class="table caption-top">
+			<caption>List of users</caption>
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">First</th>
+					<th scope="col">Last</th>
+					<th scope="col">Amount</th>
+					<th scope="col">Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row">1</th>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>25.00</td>
+					<td>21.05.2022</td>
+				</tr>
+
+			</tbody>
+		</table>
+
+	</div>
+</div>
+
+
+
+
+{% endblock %}

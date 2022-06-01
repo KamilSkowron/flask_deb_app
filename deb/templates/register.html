@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="register-main">
+
+	<div class="register-main-div">
+
+		<div class="register-left-staff">
+			<h3>Creating account on Deb.com</h3>
+			<p class="register-desp-title">Join to the best debs website.</p>
+
+			<form class="row g-3">
+				<div class="col-md-6">
+					<label for="inputFirst" class="form-label">First Name</label>
+					<input type="text" class="form-control" id="inputFirst">
+				</div>
+				<div class="col-md-6">
+					<label for="inputLast" class="form-label">Last Name</label>
+					<input type="text" class="form-control" id="inputLast">
+				</div>
+				<div class="col-md-6">
+					<label for="inputUsername" class="form-label">Username</label>
+					<input type="text" class="form-control" id="inputUsername">
+				</div>
+				<div class="col-md-6">
+					<label for="inputEmail4" class="form-label">Email</label>
+					<input type="email" class="form-control" id="inputEmail4">
+				</div>
+				<div class="col-md-6">
+					<label for="inputPassword4" class="form-label">Password</label>
+					<input type="password" class="form-control" id="inputPassword4">
+				</div>
+				<div class="col-md-6">
+					<label for="inputPassword4" class="form-label">Confirm Password</label>
+					<input type="password" class="form-control" id="inputPassword4">
+				</div>
+
+
+				<div class="register-confirm-line">
+					<a href="{{ url_for('login_page') }}" class="register-login-link">You can also loggin</a>
+					<button type="submit" class="btn btn-primary">Sign up</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="register-right-staff">
+
+			<img src="static/images/account.svg">
+			<p>One account. Access to all services of Kamil Skowron programs.</p>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

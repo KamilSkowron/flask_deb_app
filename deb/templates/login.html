@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="register-main">
+
+	<div class="register-main-div">
+
+		<div class="register-left-staff">
+			<h3>Creating account on Deb.com</h3>
+			<p class="register-desp-title">Join to the best debs website.</p>
+
+			<form class="row g-3" method="post">
+
+				{{ form.hidden_tag() }}
+
+				<div class="col-md-6">
+					{{ form.email.label() }}
+					{{ form.email(class="form-control", placeholder="User Name") }}
+				</div>
+				<div class="col-md-6">
+					{{ form.password.label() }}
+					{{ form.password(class="form-control", placeholder="Password") }}
+				</div>
+
+
+				<div class="register-confirm-line">
+					<a href="{{ url_for('register_page') }}" class="register-login-link">Don't have account? Register
+						now!</a>
+					<button type="submit" class="btn btn-primary">Sign in</button>
+				</div>
+			</form>
+		</div>
+
+		<div class="register-right-staff">
+
+			<img src="static/images/account.svg">
+			<p>One account. Access to all services of Kamil Skowron programs.</p>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

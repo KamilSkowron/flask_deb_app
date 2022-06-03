@@ -28,15 +28,31 @@
 			</tbody>
 		</table>
 	</div>
+	<form method="post" action="">
+		<div class="mid">
 
-	<div class="mid">
-		<button type="button" class="add-button">
-				Add Deb
-		</button>
-		<button type="button" class="reduse-button">
-			Reduse Deb
-		</button>
-	</div>
+
+			{{ form.hidden_tag() }}
+
+			<div class="mid-data">
+				<p class="label">Borrower</p>
+				{{ form.borrower(class="form-control", placeholder="Person") }}
+
+				<p class="label">Amount</p>
+				{{ form.amount(class="form-control", placeholder="Money") }}
+
+				<p class="label">Description</p>
+				{{ form.description(class="form-control", placeholder="What for") }}
+			</div>
+
+			<div class="mid-confirm">
+				<input class="add-button" type="submit" name="action" value="Add Deb">
+				<input class="reduse-button" type="submit" name="action" value="Reduse Deb">
+
+			</div>
+
+		</div>
+	</form>
 
 	<div class="right">
 		<table class="table caption-top">

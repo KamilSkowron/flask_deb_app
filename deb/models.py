@@ -1,7 +1,11 @@
-from deb import db, bcrypt
+from deb import db, bcrypt, login_manager
 from datetime import datetime
 from flask_login import UserMixin
 
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer(), primary_key=True)
@@ -26,7 +30,7 @@ class User(db.Model, UserMixin):
         return bcrypt.check_password_hash(self.password_hash, attempted_password)
 
     def to_dict(self):
-        return {"id": self.id, "username": self.username, "email_address": self.email_address, "password_hash": self.password_hash}
+        return {"id": self.id,"first_name": self.first_name,"last_name": self.last_name, "username": self.username, "email_address": self.email_address, "password_hash": self.password_hash}
 
 class Deb_info(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
@@ -39,7 +43,7 @@ class Deb_info(db.Model):
 
 
     def to_dict(self):
-        return {"id": self.id, "debtor": self.debtor, "borrower": self.borrower, "description": self.description, "amount": self.amount, "date_added": f'{self.date_added}'}
+        return {"id": self.id, "debtor": self.debtor, "borrower": self.borrower, "description": self.description, "amount": self.amount, "date_added": f'{self.date_added}'[:19]}
 
     def __repr__(self):
         return [self.debtor, self.borrower, self.amount]
